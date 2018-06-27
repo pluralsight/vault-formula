@@ -1,3 +1,6 @@
+include:
+  - .init
+
 {% from "vault/map.jinja" import vault with context %}
 {%- if vault.self_signed_cert.enabled %}
 /usr/local/bin/self-cert-gen.sh:
