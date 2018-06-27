@@ -8,7 +8,7 @@ storage "consul" {
   address = "{{vault.backend.address}}"
   path = "{{vault.backend.path}}"
 }
-{%- endif-%}
+{% endif%}
 
 ui = {{ vault.ui }}
 
