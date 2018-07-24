@@ -1,6 +1,14 @@
 include:
   - .init
 
+/usr/local/bin/self-cert-gen-test.sh:
+  file.managed:
+    - source: salt://vault/files/cert-gen.sh.jinja
+    - template: jinja
+    - user: root
+    - group: root
+    - mode: 644
+
 {% from "vault/map.jinja" import vault with context %}
 {%- if vault.self_signed_cert.enabled %}
 /usr/local/bin/self-cert-gen.sh:
