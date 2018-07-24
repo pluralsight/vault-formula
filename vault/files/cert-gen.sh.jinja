@@ -31,7 +31,8 @@ pw="$child"
 root_key="$root.key"
 root_pem="$root.pem"
 root_key_nopass="$root-nopass.key"
-root_subj="/C={{ vault.self_signed_cert.country }}/ST={{ vault.self_signed_cert.state }}/L={{ vault.self_signed_cert.city }}/O={{ vault.self_signed_cert.org }}/OU={{ vault.self_signed_cert.org_unit }}/CN=$root\_ca"
+root_subj="/Ci=US/ST=Utah/L=Salt Lake City/O=Plurlasight/OU=None/CN=$root\_ca"
+#root_subj="/C={{ vault.self_signed_cert.country }}/ST={{ vault.self_signed_cert.state }}/L={{ vault.self_signed_cert.city }}/O={{ vault.self_signed_cert.org }}/OU={{ vault.self_signed_cert.org_unit }}/CN=$root\_ca"
 root_p12="$root.p12"
 
 ###
