@@ -21,7 +21,7 @@ include:
 
 generate self signed SSL certs:
   cmd.run:
-    - name: bash /usr/local/bin/cert-gen.sh {{ vault.self_signed_cert.hostname }} {{ vault.self_signed_cert.password }}
+    - name: bash /usr/local/bin/self-cert-gen.sh {{ vault.self_signed_cert.hostname }} {{ vault.self_signed_cert.password }}
     - cwd: /etc/vault
     - require:
       - file: /usr/local/bin/self-cert-gen.sh
