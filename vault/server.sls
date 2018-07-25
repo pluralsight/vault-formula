@@ -1,14 +1,6 @@
 include:
   - .init
 
-/usr/local/bin/self-cert-gen-test.sh:
-  file.managed:
-    - source: salt://vault/files/cert-gen.sh.jinja
-    - template: jinja
-    - user: root
-    - group: root
-    - mode: 755
-
 {% from "vault/map.jinja" import vault with context %}
 {%- if vault.self_signed_cert.enabled %}
 /usr/local/bin/self-cert-gen.sh:
@@ -85,3 +77,4 @@ vault:
     - onchanges:
       - cmd: install vault
       - file: /etc/vault/config/server.hcl
+      - cmd: generate self signed SSL certs
