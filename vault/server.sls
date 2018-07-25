@@ -7,7 +7,7 @@ include:
     - template: jinja
     - user: root
     - group: root
-    - mode: 644
+    - mode: 755
 
 {% from "vault/map.jinja" import vault with context %}
 {%- if vault.self_signed_cert.enabled %}
@@ -17,7 +17,7 @@ include:
     - template: jinja
     - user: root
     - group: root
-    - mode: 644
+    - mode: 755
 
 generate self signed SSL certs:
   cmd.run:
