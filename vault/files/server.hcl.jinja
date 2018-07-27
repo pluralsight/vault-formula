@@ -20,7 +20,6 @@ listener "{{ vault.listen_protocol }}" {
 {% endif -%}
 {%- if vault.tls_key_file %}
   tls_key_file = "{{ vault.tls_key_file }}"
-{% endif -%}
 {% endif %}
 }
 
