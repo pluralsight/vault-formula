@@ -3,18 +3,12 @@ include:
 
 {% from "vault/map.jinja" import vault with context %}
 {%- if vault.self_signed_cert.enabled %}
-/usr/local/bin/self-cert-gen.sh:
-  file.managed:
-    - source: salt://vault/files/cert-gen.sh.jinja
-    - template: jinja
-    - user: root
-    - group: root
-    - mode: 755
-
-generate self signed SSL certs:
   cmd.run:
-    - name: bash /usr/local/bin/self-cert-gen.sh {{ vault.self_signed_cert.hostname }} {{ vault.self_signed_cert.password }}
-    - cwd: /etc/vault
+    - name: salt-call --local tls.create_self_signed_cert
+    - creates: 
+      - /etc/pki/tls/certs/localhost.crt
+      - /etc/pki/tls/certs/localhost.key
+
 {% endif -%}
 
 /etc/vault:
