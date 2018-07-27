@@ -3,6 +3,7 @@ include:
 
 {% from "vault/map.jinja" import vault with context %}
 {%- if vault.self_signed_cert.enabled %}
+create_self_signed_cert:
   cmd.run:
     - name: salt-call --local tls.create_self_signed_cert
     - creates: 
